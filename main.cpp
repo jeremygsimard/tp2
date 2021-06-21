@@ -21,7 +21,7 @@ int main() {
 
 
     while (std::getline(fichier_brute, ligne)) {
-        std::stringstream fichier(ligne);
+        stringstream fichier(ligne);
         fichier >> identifiant >> matricule >> nb_note;
 
         un_tableau.push_back(Etudiant(identifiant,matricule));
