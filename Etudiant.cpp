@@ -1,15 +1,14 @@
 #include "Etudiant.h"
 #include "numeric"
 
-
-Etudiant::Etudiant() {
-}
+Etudiant::Etudiant() = default;
 
 Etudiant::Etudiant(std::string un_identifiant, long un_matricule) {
     this->identifiant = un_identifiant;
     this->matricule = un_matricule;
 }
 float Etudiant::calculerMoyenne() {
+
     int somme = accumulate(std::begin(notes), std::end(notes), 0);
     float moyenne = (float)somme /  notes.size();
     return moyenne;
@@ -25,6 +24,7 @@ bool Etudiant::operator<(const Etudiant& etudiant_a_droite) const {
     return false;
 }
 
-long Etudiant::getMatricule() {
+long Etudiant::getMatricule() const {
     return this->matricule;
 }
+
