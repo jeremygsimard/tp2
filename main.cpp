@@ -5,13 +5,12 @@
 #include "Etudiant.h"
 #include <iostream>
 
-
 int main() {
-    std::vector<Etudiant> un_tableau; // conteneur vector pour les etudiants
 
-    std::ifstream data_student("donneesbrutes.txt");  // objet pour lire fichier txt de raw data
+    std::vector<Etudiant> un_tableau;
+    std::ifstream fichier_brute("donneesbrutes.txt");
 
-    std::string ligne; 
+    std::string ligne;
     std::string identifiant;
     long matricule;
     int nb_note = 0;
@@ -19,11 +18,9 @@ int main() {
     int compteur = 0;
 
 
-    while (std::getline(data_student, ligne)) {
+    while (std::getline(fichier_brute, ligne)) {
         std::stringstream fichier(ligne);
-        fichier >> identifiant >> matricule >> nb_note>>note;
-
-
+        fichier >> identifiant >> matricule >> nb_note;
 
         un_tableau.push_back(Etudiant(identifiant,matricule));
         while (true) {
@@ -37,18 +34,15 @@ int main() {
         compteur++;
 
     }
-    data_student.close();
+    fichier_brute.close();
 
-
-    std::ofstream data_student2("moyennes.txt");  // print dans un nouveau fichier txt
-
-    std::sort(un_tableau.begin(), un_tableau.end());   // organisation des valeurs par le matricule
+    std::ofstream fichier_moyenne("moyenne.txt");
+    std::sort(un_tableau.begin(), un_tableau.end());
 
     std::string matriculeEtMoyenne;
     for (auto it : un_tableau) {
         matriculeEtMoyenne =  std::to_string(it.getMatricule()) + " " + std::to_string(it.calculerMoyenne()) +"\n";
-        data_student2 << matriculeEtMoyenne;
+        fichier_moyenne << matriculeEtMoyenne;
     }
-
-    data_student2.close();
+    fichier_moyenne.close();
 }
