@@ -3,16 +3,20 @@
 #include <vector>
 #include <iostream>
 
+using namespace std;
+
 class Etudiant
 {
 private:
-    std::vector<int> notes;
-    std::string identifiant;
+    vector<int> notes;
+    string identifiant;
     long matricule;
+    float moyenne, somme;
+
 
 public:
     Etudiant();
-    Etudiant(std::string un_identifiant, long un_matricule);
+    Etudiant(string un_identifiant, long un_matricule);
 
     float calculerMoyenne();
     void ajouterNote(int une_note);
@@ -21,6 +25,3 @@ public:
 
 };
 #endif
-
-
-
