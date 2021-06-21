@@ -11,8 +11,8 @@ Etudiant::Etudiant(std::string un_identifiant, long un_matricule) {
 }
 float Etudiant::calculerMoyenne() {
     int somme = accumulate(std::begin(notes), std::end(notes), 0);
-    float moyennne = (float)somme /  notes.size();
-    return moyennne;
+    float moyenne = (float)somme /  notes.size();
+    return moyenne;
 
 }
 
