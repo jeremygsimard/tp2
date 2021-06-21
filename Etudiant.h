@@ -8,7 +8,7 @@ private:
     std::vector<int> notes;
     std::string identifiant;
     long matricule;
-    float moyennne;
+  
 public:
     Etudiant();
     Etudiant(std::string un_identifiant, long un_matricule);
