@@ -5,13 +5,15 @@
 #include "Etudiant.h"
 #include <iostream>
 
+using namespace std;
+
 int main() {
 
-    std::vector<Etudiant> un_tableau;
-    std::ifstream fichier_brute("donneesbrutes.txt");
+    vector<Etudiant> un_tableau;
+    ifstream fichier_brute("donneesbrutes.txt");
 
-    std::string ligne;
-    std::string identifiant;
+    string ligne;
+    string identifiant;
     long matricule;
     int nb_note = 0;
     int note = 0;
@@ -36,12 +38,12 @@ int main() {
     }
     fichier_brute.close();
 
-    std::ofstream fichier_moyenne("moyenne.txt");
-    std::sort(un_tableau.begin(), un_tableau.end());
+    ofstream fichier_moyenne("moyenne.txt");
+    sort(un_tableau.begin(), un_tableau.end());
 
-    std::string matriculeEtMoyenne;
+    string matriculeEtMoyenne;
     for (auto it : un_tableau) {
-        matriculeEtMoyenne =  std::to_string(it.getMatricule()) + " " + std::to_string(it.calculerMoyenne()) +"\n";
+        matriculeEtMoyenne =  to_string(it.getMatricule()) + " " + to_string(it.calculerMoyenne()) +"\n";
         fichier_moyenne << matriculeEtMoyenne;
     }
     fichier_moyenne.close();
