@@ -7,11 +7,11 @@
 
 
 int main() {
-    std::vector<Etudiant> un_tableau;
+    std::vector<Etudiant> un_tableau; // conteneur vector pour les etudiants
 
-    std::ifstream data_student("donneesbrutes.txt");
+    std::ifstream data_student("donneesbrutes.txt");  // objet pour lire fichier txt de raw data
 
-    std::string ligne;
+    std::string ligne; 
     std::string identifiant;
     long matricule;
     int nb_note = 0;
@@ -40,9 +40,9 @@ int main() {
     data_student.close();
 
 
-    std::ofstream data_student2("moyennes.txt");
+    std::ofstream data_student2("moyennes.txt");  // print dans un nouveau fichier txt
 
-    std::sort(un_tableau.begin(), un_tableau.end());
+    std::sort(un_tableau.begin(), un_tableau.end());   // organisation des valeurs par le matricule
 
     std::string matriculeEtMoyenne;
     for (auto it : un_tableau) {
